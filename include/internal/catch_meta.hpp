@@ -14,9 +14,6 @@
 namespace Catch {
     template<typename T>
     struct always_false : std::false_type {};
-
-    template<typename...>
-    void debug();
 } // namespace Catch
 
 #endif // TWOBLUECUBES_CATCH_META_HPP_INCLUDED
