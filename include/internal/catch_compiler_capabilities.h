@@ -48,7 +48,7 @@
 #       define CATCH_INTERNAL_SUPPRESS_GLOBALS_WARNINGS \
             _Pragma( "clang diagnostic push" ) \
             _Pragma( "clang diagnostic ignored \"-Wexit-time-destructors\"" ) \
-            _Pragma( "clang diagnostic ignored \"-Wglobal-constructors\"")\
+            _Pragma( "clang diagnostic ignored \"-Wglobal-constructors\"")
 #       define CATCH_INTERNAL_UNSUPPRESS_GLOBALS_WARNINGS \
             _Pragma( "clang diagnostic pop" )
 
@@ -62,6 +62,12 @@
             _Pragma( "clang diagnostic push" ) \
             _Pragma( "clang diagnostic ignored \"-Wunused-variable\"" )
 #       define CATCH_INTERNAL_UNSUPPRESS_UNUSED_WARNINGS \
+            _Pragma( "clang diagnostic pop" )
+
+#       define CATCH_INTERNAL_SUPPRESS_ZERO_VARIADIC_WARNINGS \
+            _Pragma( "clang diagnostic push" ) \
+            _Pragma( "clang diagnostic ignored \"-Wgnu-zero-variadic-macro-arguments\"" )
+#       define CATCH_INTERNAL_UNSUPPRESS_ZERO_VARIADIC_WARNINGS \
             _Pragma( "clang diagnostic pop" )
 
 #endif // __clang__
@@ -273,6 +279,10 @@
 #if !defined(CATCH_INTERNAL_SUPPRESS_UNUSED_WARNINGS)
 #   define CATCH_INTERNAL_SUPPRESS_UNUSED_WARNINGS
 #   define CATCH_INTERNAL_UNSUPPRESS_UNUSED_WARNINGS
+#endif
+#if !defined(CATCH_INTERNAL_SUPPRESS_ZERO_VARIADIC_WARNINGS)
+#   define CATCH_INTERNAL_SUPPRESS_ZERO_VARIADIC_WARNINGS
+#   define CATCH_INTERNAL_UNSUPPRESS_ZERO_VARIADIC_WARNINGS
 #endif
 
 #if defined(CATCH_CONFIG_DISABLE_EXCEPTIONS)

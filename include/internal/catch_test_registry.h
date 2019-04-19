@@ -113,6 +113,7 @@ struct AutoReg : NonCopyable {
     ///////////////////////////////////////////////////////////////////////////////
     #define INTERNAL_CATCH_TEMPLATE_TEST_CASE_2(TestName, TestFunc, Name, Tags, Signature, ... )\
         CATCH_INTERNAL_SUPPRESS_GLOBALS_WARNINGS \
+        CATCH_INTERNAL_SUPPRESS_ZERO_VARIADIC_WARNINGS \
         INTERNAL_CATCH_DECLARE_SIG_TEST(TestFunc, INTERNAL_CATCH_REMOVE_PARENS(Signature));\
         namespace INTERNAL_CATCH_MAKE_NAMESPACE(TestName){\
             INTERNAL_CATCH_TYPE_GEN\
@@ -134,6 +135,7 @@ struct AutoReg : NonCopyable {
         }();\
         }\
         CATCH_INTERNAL_UNSUPPRESS_GLOBALS_WARNINGS \
+        CATCH_INTERNAL_UNSUPPRESS_ZERO_VARIADIC_WARNINGS \
         INTERNAL_CATCH_DEFINE_SIG_TEST(TestFunc,INTERNAL_CATCH_REMOVE_PARENS(Signature))
 
 #if defined(CATCH_CPP17_OR_GREATER)
@@ -160,6 +162,7 @@ struct AutoReg : NonCopyable {
 
     #define INTERNAL_CATCH_TEMPLATE_PRODUCT_TEST_CASE2(TestName, TestFuncName, Name, Tags, Signature, TmplTypes, TypesList) \
         CATCH_INTERNAL_SUPPRESS_GLOBALS_WARNINGS                      \
+        CATCH_INTERNAL_SUPPRESS_ZERO_VARIADIC_WARNINGS                \
         template<typename TestType> static void TestFuncName();       \
         namespace INTERNAL_CATCH_MAKE_NAMESPACE(TestName) {                                     \
             INTERNAL_CATCH_TYPE_GEN                                                  \
@@ -184,6 +187,7 @@ struct AutoReg : NonCopyable {
             }();                                                      \
         }                                                             \
         CATCH_INTERNAL_UNSUPPRESS_GLOBALS_WARNINGS                    \
+        CATCH_INTERNAL_UNSUPPRESS_ZERO_VARIADIC_WARNINGS              \
         template<typename TestType>                                   \
         static void TestFuncName()
 
@@ -205,6 +209,7 @@ struct AutoReg : NonCopyable {
 
     #define INTERNAL_CATCH_TEMPLATE_TEST_CASE_METHOD_2( TestNameClass, TestName, ClassName, Name, Tags, Signature, ... ) \
         CATCH_INTERNAL_SUPPRESS_GLOBALS_WARNINGS \
+        CATCH_INTERNAL_SUPPRESS_ZERO_VARIADIC_WARNINGS \
         namespace INTERNAL_CATCH_MAKE_NAMESPACE(TestName){ \
             INTERNAL_CATCH_TYPE_GEN\
             INTERNAL_CATCH_NTTP_GEN(INTERNAL_CATCH_REMOVE_PARENS(Signature))\
@@ -226,6 +231,7 @@ struct AutoReg : NonCopyable {
         }();\
         }\
         CATCH_INTERNAL_UNSUPPRESS_GLOBALS_WARNINGS\
+        CATCH_INTERNAL_UNSUPPRESS_ZERO_VARIADIC_WARNINGS\
         INTERNAL_CATCH_DEFINE_SIG_TEST_METHOD(TestName, INTERNAL_CATCH_REMOVE_PARENS(Signature))
 
 #ifndef CATCH_CONFIG_TRADITIONAL_MSVC_PREPROCESSOR
@@ -246,6 +252,7 @@ struct AutoReg : NonCopyable {
 
     #define INTERNAL_CATCH_TEMPLATE_PRODUCT_TEST_CASE_METHOD_2(TestNameClass, TestName, ClassName, Name, Tags, Signature, TmplTypes, TypesList)\
         CATCH_INTERNAL_SUPPRESS_GLOBALS_WARNINGS \
+        CATCH_INTERNAL_SUPPRESS_ZERO_VARIADIC_WARNINGS \
         template<typename TestType> \
             struct TestName : INTERNAL_CATCH_REMOVE_PARENS(ClassName <TestType>) { \
                 void test();\
@@ -273,6 +280,7 @@ struct AutoReg : NonCopyable {
             }(); \
         }\
         CATCH_INTERNAL_UNSUPPRESS_GLOBALS_WARNINGS \
+        CATCH_INTERNAL_UNSUPPRESS_ZERO_VARIADIC_WARNINGS \
         template<typename TestType> \
         void TestName<TestType>::test()
 
