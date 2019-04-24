@@ -1,1 +1,0 @@
-/Library/Developer/CommandLineTools/usr/bin/c++  -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.14.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names  CMakeFiles/207-Rpt-TeamCityReporter.dir/207-Rpt-TeamCityReporter.cpp.o CMakeFiles/CatchMainTeamCity.dir/200-Rpt-CatchMain.cpp.o  -o 207-Rpt-TeamCityReporter 
