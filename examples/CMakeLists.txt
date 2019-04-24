@@ -21,6 +21,7 @@ set( REPORTER_HEADER_DIR ${CATCH_DIR}/include/reporters )
 set( SOURCES_SINGLE_FILE
     010-TestCase.cpp
     231-Cfg-OutputStreams.cpp
+    
 )
 
 # multiple-file modules:
@@ -29,6 +30,9 @@ set( SOURCES_020
     020-TestCase-1.cpp
     020-TestCase-2.cpp
 )
+
+add_executable( TestCalc ${EXAMPLES_DIR}/TestCalc.cpp ${HEADER_DIR}/catch2/catch.hpp )
+
 
 # main for idiomatic test sources:
 
@@ -101,6 +105,7 @@ set( TARGETS_REPORTERS_MAIN  ${BASENAMES_REPORTERS_MAIN} )
 
 set( TARGETS_ALL
     ${TARGETS_SINGLE_FILE}
+    TestCalc
     020-TestCase
     ${TARGETS_IDIOMATIC_TESTS} CatchMain
     ${TARGETS_REPORTERS_TESTS} CatchMainTeamCity
